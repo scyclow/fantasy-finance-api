@@ -1,5 +1,15 @@
 Rails.application.routes.draw do
-  
+  namespace :api do
+    namespace :v1 do
+      api_routes = [:index, :create, :update, :destroy]
+      resources :user, only: api_routes do
+        resources :portfolio, 
+                  :defaults => { fortmat: "json"}, 
+                  :only => api_routes
+      end
+    end
+    
+  end
 
 
 
