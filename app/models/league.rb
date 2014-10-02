@@ -1,3 +1,4 @@
 class League < ActiveRecord::Base
-	has_one :commissioner, :class_name => "User"
+	belongs_to :commissioner, :class_name => "User"
+	has_many :portfolios
 end
